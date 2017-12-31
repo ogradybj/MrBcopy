@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<title>Mr Balling</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111664819-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111664819-1');
+</script>
+		<style>
+		  body {
+		    padding: 0px;
+		    margin: 0px;
+		    background-color: black;
+		  }
+		  </style>
+	</head>
+
+	<body>  
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js"></script>
+<script type="text/javascript" src="js/phaser.js"></script> 
+        <script src="js/vendor/phaser-input.js"></script>
+<script src="js/vendor/phaser-ads.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAq1-sC1OwputuWFbAuYoLi9wHRX599_sg",
+    authDomain: "mrballing-5e6e5.firebaseapp.com",
+    databaseURL: "https://mrballing-5e6e5.firebaseio.com",
+    projectId: "mrballing-5e6e5",
+    storageBucket: "mrballing-5e6e5.appspot.com",
+    messagingSenderId: "196616526922"
+  };
+  firebase.initializeApp(config);
+  firebase.auth().signInAnonymously().catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+  var pollfishConfig = {
+  api_key: "985f5622-17ec-4115-8310-8af467bc21d2",
+  indicator_position: "BOTTOM_RIGHT",
+  debug: true,
+  uuid: "string_uuid",
+  closeCallback: customSurveyClosed,
+  userNotEligibleCallback: customUserNotEligible,
+  closeAndNoShowCallback: customCloseAndNoShow,
+  surveyCompletedCallback: customSurveyFinished,
+  surveyAvailable: customSurveyAvailable,
+  surveyNotAvailable: customSurveyNotAvailable
+};
+
+function customSurveyClosed(){
+  console.log("user closed the survey");
+}
+
+function customUserNotEligible(){
+  console.log("user is not eligible");
+}
+
+function customSurveyFinished(){
+  console.log("user finished the survey");
+}
+
+function customCloseAndNoShow(){
+  console.log("close and hide the indicator");
+}
+
+function customSurveyAvailable(data){
+  console.log("pollfish survey is available with revenue: " + data.revenue + " and survey format playful: " + data.playful);
+}
+
+function customSurveyNotAvailable(){
+  console.log("survey not available");
+}
+
+// let settings = {
+//     // This is the gameId you get when you've create a game on gamedistribution.com
+//     gameId: "b19a83a9eadf4b2fbc75e3643b1f1431",    
+
+//     // Along with the gameid you'll also be supplied a userId, put it here
+//     userId: "FEF219E3-709B-46BB-B3E3-A470A89E356A-s1",
+
+//     // This function will be called when the ad begins and when your game should be paused. It's required that you mute your game at this point
+//     pauseGame: function () {
+//         game.pause(); //example
+//     },
+
+//     // This callback is called when the ad is finished, you can resume your game and unmute your audio
+//     resumeGame: function () {
+//         game.resume(); //example
+//     },
+
+//     // Called when the gdApi initlialized, will be deprecated soon
+//     onInit: function (data) {
+//         console.log("Init: ", data);
+//     },
+
+//     // Called when an error appears in the gdApi, will be deprecated soon
+//     onError: function (data) {
+//         console.log("Error: ", data);
+//     }
+// };
+// //Include the gdApi script
+// (function(i,s,o,g,r,a,m){
+//     i['GameDistribution']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)};i[r].l=1*new Date();a=s.createElement(o);m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a, m);
+// })(window, document, 'script', '//html5.api.gamedistribution.com/libs/gd/api.js', 'gdApi');
+
+
+// //Initialize the gdApi script with the previously defined settings
+// gdApi(settings);
+
+
+
+
+</script>
+        <script src="js/vendor/jquery-3.2.1.min.js"></script>
+        <script src="https://storage.googleapis.com/pollfish_production/sdk/webplugin/pollfish.min.js"></script>
+        
+        
+        
+		<script src="js/states/GameState.js"></script>
+		<script src="js/states/PreloadState.js"></script>
+		<script src="js/states/BootState.js"></script>
+		<script src="js/states/HomeState.js"></script>
+        <script src="js/states/GameOverState.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
